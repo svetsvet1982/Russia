@@ -8,12 +8,16 @@ TURN = re.compile(r"^\*\*(\d+)\. ([А-ЯЁA-Z][А-ЯЁA-Z\- ]*):\*\*")
 
 
 def check(path: Path) -> bool:
-    turns = [(int(m.group(1)), m.group(2)) for line in path.read_text(encoding="utf-8").splitlines()
-             if (m := TURN.match(line))]
-    nums = [n for n, _ in turns]
+    turns, scene = [], 0
+    for line in path.read_text(encoding="utf-8").splitlines():
+        if line.strip() == "---":
+            scene += 1
+        elif m := TURN.match(line):
+            turns.append((int(m.group(1)), m.group(2), scene))
+    nums = [n for n, _, _ in turns]
     ok = nums == list(range(1, 151))
-    for (n1, a), (n2, b) in zip(turns, turns[1:]):
-        if a == b:
+    for (n1, a, s1), (n2, b, s2) in zip(turns, turns[1:]):
+        if a == b and s1 == s2:
             print(f"WARN {path}: реплики {n1} и {n2} подряд у {a}")
     if not ok:
         gaps = [i for i, n in enumerate(nums, 1) if n != i]
