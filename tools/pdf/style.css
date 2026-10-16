@@ -1,0 +1,32 @@
+@page { size: A4; margin: 20mm 18mm 20mm 18mm; }
+html { font-family: "DejaVu Serif", "WenQuanYi Zen Hei", serif; font-size: 10.5pt; line-height: 1.45; color: #1a1a1a; }
+body { margin: 0; }
+.pb { break-before: page; }
+.cover { height: 250mm; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+.cover-title { font-size: 34pt; font-weight: bold; letter-spacing: 0.08em; }
+.cover-sub { font-family: "WenQuanYi Zen Hei", sans-serif; font-size: 18pt; margin-top: 8mm; color: #555; }
+.cover-meta { margin-top: 20mm; font-size: 12pt; }
+.cover-meta2 { font-family: "WenQuanYi Zen Hei", sans-serif; margin-top: 4mm; font-size: 11pt; color: #555; }
+h1 { font-size: 24pt; text-align: center; margin-top: 90mm; break-after: page; }
+h1.part { }
+h2 { font-size: 15pt; border-bottom: 1px solid #999; padding-bottom: 2mm; margin-top: 0; }
+h3 { font-size: 12.5pt; margin-top: 6mm; }
+p { margin: 0 0 2.2mm 0; orphans: 2; widows: 2; }
+blockquote { margin: 3mm 0; padding: 2mm 4mm; border-left: 3px solid #999; background: #f4f4f4; font-size: 9.5pt; }
+blockquote p { margin: 0 0 1mm 0; }
+hr { border: none; text-align: center; margin: 5mm 0; }
+hr::after { content: "* * *"; color: #777; letter-spacing: 0.5em; }
+em { color: #444; }
+strong { color: #000; }
+table { border-collapse: collapse; width: 100%; font-size: 8.5pt; margin: 3mm 0; }
+th, td { border: 1px solid #bbb; padding: 1.2mm 1.6mm; vertical-align: top; }
+th { background: #eee; }
+pre, code { font-family: "DejaVu Sans Mono", "WenQuanYi Zen Hei", monospace; font-size: 8.5pt; }
+pre { white-space: pre-wrap; background: #f6f6f6; padding: 2mm; }
+nav#TOC { break-after: page; font-size: 9.5pt; }
+nav#TOC > ul { list-style: none; padding-left: 0; }
+nav#TOC li { margin: 0.6mm 0; }
+nav#TOC > ul > li > a { font-weight: bold; }
+nav#TOC a { color: #1a1a1a; text-decoration: none; }
+nav#TOC::before { content: "Содержание · 목차"; display: block; font-size: 18pt; font-weight: bold; margin-bottom: 5mm; }
+header#title-block-header { display: none; }
