@@ -30,3 +30,6 @@ nav#TOC > ul > li > a { font-weight: bold; }
 nav#TOC a { color: #1a1a1a; text-decoration: none; }
 nav#TOC::before { content: "Содержание · 목차"; display: block; font-size: 18pt; font-weight: bold; margin-bottom: 5mm; }
 header#title-block-header { display: none; }
+h3.commentary { font-size: 14pt; border-bottom: 1px solid #999; padding-bottom: 2mm; }
+h4 { font-size: 11pt; margin: 5mm 0 2mm; }
+li { margin-bottom: 1.2mm; }
