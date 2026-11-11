@@ -134,7 +134,7 @@ def build(out: Path):
     for i, (title, event, learn, issue, when) in enumerate(D.EPISODES):
         p = part_of(i)
         rr = i + 2
-        body(ws, rr, [i + 1, title, D.PARTS[p], D.LEVELS[p], event, learn, TURNS, "미작성", issue, when],
+        body(ws, rr, [i + 1, title, D.PARTS[p], D.LEVELS[p], event, learn, TURNS, D.EP_STATUS.get(i + 1, "미작성"), issue, when],
              fill=D.PART_FILLS[p])
         for c in (1, 4, 7, 8, 10):
             ws.cell(rr, c).alignment = Alignment(vertical="top", wrap_text=False)
