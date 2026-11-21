@@ -1,11 +1,14 @@
 import re, sys
 from pathlib import Path
 root = Path(sys.argv[1]); out = Path(sys.argv[2])
-parts = ["part1_utechka","part2_severny_flang","part3_vostochny_veter","part4_endshpil"]
+parts = sorted(p.name for p in root.glob("part*") if p.is_dir())
 buf = []
-buf.append('<div class="cover"><div class="cover-title">СМОЛЕНСКАЯ ПЛОЩАДЬ</div>'
-           '<div class="cover-sub">스몰렌스카야 광장</div>'
-           '<div class="cover-meta">Сезон первый · 4 части · 48 эпизодов · 7 200 реплик</div>'
+title, sub, meta = (sys.argv[3:6] + [None]*3)[:3]
+title = title or "СМОЛЕНСКАЯ ПЛОЩАДЬ"; sub = sub or "스몰렌스카야 광장"
+meta = meta or "Сезон первый · 4 части · 48 эпизодов · 7 200 реплик"
+buf.append(f'<div class="cover"><div class="cover-title">{title}</div>'
+           f'<div class="cover-sub">{sub}</div>'
+           f'<div class="cover-meta">{meta}</div>'
            '<div class="cover-meta2">기획서 + 대본 전편</div></div>\n')
 plan = (root/"기획서.md").read_text(encoding="utf-8").splitlines()
 plan = [l for l in plan[2:]]
